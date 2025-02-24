@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="a">
+    <p>fatherValue:{{ fatherVal() }}</p>
+    <p>computedSignal:{{ computedSignal() }}</p>
+    <p>linkedSignal:{{ linkedSignal() }}</p>
+    <p>computedSignal:{{ computedSignal() }}</p>
+
+    <button (click)="clickHandler($event)">-1</button>
+
+    <button type="submit">destroy father</button>
+
+    <app-son
+      [(sonVal)]="fatherVal"
+      (sonMsg)="sonMsgHandler($event)"
+      [fatherComputedSignal]="computedSignal()"
+      [fatherLinkedSignal]="linkedSignal()"
+    ></app-son>
+  </div>
+  <div class="b">
+    <ul>
+      @for (item of shippingOpitons(); track $index) {
+      <input
+        title="shippingOpitons"
+        type="radio"
+        name="shippingOption"
+        value="{{ item }}"
+        (valueChange)="handleChange($event)"
+      />
+      <label>{{ item }}</label>
+      }
+    </ul>
+    <p>shippingOptions:{{ shippingOpitons() }}</p>
+    <p>selectedOption:{{ selectedOption() }}</p>
+  </div>
+</div>

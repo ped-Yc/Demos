@@ -1,0 +1,49 @@
+name: CI/CD Pipeline
+
+# 触发工作流的事件
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# 定义工作流中的作业
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x]
+
+    steps:
+    # 检出代码
+    - uses: actions/checkout@v3
+      
+    # 设置Node.js环境
+    - name: 使用 Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    
+    # 安装依赖
+    - name: 安装依赖
+      run: npm ci
+    
+    # 运行测试
+    - name: 运行测试
+      run: npm test
+    
+    # 构建项目
+    - name: 构建项目
+      run: npm run build
+    
+    # 缓存依赖
+    - name: 缓存 node_modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-

@@ -1,0 +1,17 @@
+<p>home works!</p>
+<ul>
+  @for (item of nameList(); track $index) {
+  <li>{{ item }}</li>
+  }
+  <li>{{ sum }}</li>
+</ul>
+
+<app-father />
+
+<app-card>
+  <div class="card-header">
+    <span class="tag">标签一</span>
+    <span class="tag">标签二</span>
+  </div>
+  <!-- <h3 ngProjectAs="card-header">标题</h3> -->
+</app-card>

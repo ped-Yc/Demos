@@ -1,0 +1,48 @@
+.yc-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 400px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease-in-out;
+  & > * {
+    display: block;
+  }
+  & > *:hover {
+    cursor: pointer;
+    transform: translateX(-10px);
+  }
+  .card-header {
+    > .tag {
+      display: inline-block;
+      background-color: #7d58d1;
+      color: var(--c-indigo);
+      font-weight: 600;
+      font-size: 0.875rem;
+      padding: 0.5em 0.75em;
+      line-height: 1;
+      border-radius: 6px;
+    }
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  card-body {
+    min-height: 300px;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  card-footer {
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+}
