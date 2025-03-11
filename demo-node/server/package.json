@@ -1,0 +1,14 @@
+{
+  "name": "demo-node-server",
+  "version": "1.0.0",
+  "main": "http-server.js",
+  "scripts": {
+    "start": "nodemon http-server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2",
+    "mongodb": "^6.14.1",
+    "nodemon": "^2.0.22"
+  }
+}
